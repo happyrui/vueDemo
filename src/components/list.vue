@@ -6,15 +6,31 @@
                 {{item.title}}
             </li>
         </ul> -->
-        <el-card class="box-card">
-            <div slot="header" class="clearfix">
+        <!-- ele中属性比较少 class都是自定义 -->
+        <el-card shadow='hover'>
+            <!-- 头部 -->
+            <div slot="header">
                 <h2 style="line-height: 36px; color: #20A0FF">豆瓣电影排行榜</h2>
+                <p>sfdsf</p>
             </div>
-            <div v-for="item in items" class="text item">
+            <div v-for="item in items">
                 {{item.title}}
             </div>
         </el-card>
-        <router-link to='./detail'>跳转详情</router-link>
+        <el-row>
+            <el-button type="primary">
+                <router-link to='./detail'>跳转详情</router-link>
+            </el-button>
+            <div>{{reversedMessage}}</div>
+            <input v-model="text" />
+            <p>{{text}}</p>
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </el-row>
     </div>
 </template>
 <script>
@@ -23,7 +39,23 @@ export default {
     data(){
         return {
             msg: 'this is list',
-            items: this.items
+            items: this.items,
+            text:'',
+            selected: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ]
+        }
+    },
+    // 计算属性 复杂逻辑时使用
+    computed: {
+        // 匿名函数作为属性reversedMessage 的getter函数
+        // 计算属性的 getter
+        reversedMessage: function () {
+        // `this` 指向 vm 实例
+        return this.msg.split('').reverse().join('')
         }
     },
     // 周期函数
