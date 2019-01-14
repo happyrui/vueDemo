@@ -7,6 +7,11 @@
         <el-row>
             结果：<label>{{changeNum}}</label>
         </el-row>
+        <el-row>
+            <div>wsds</div>
+            <!-- 使用插槽 -->
+            <slot></slot>
+        </el-row>
     </div>
 </template>
 
@@ -16,6 +21,11 @@ export default {
         changeNum: {
             type: Number,
             required: true
+        }
+    },
+    data(){
+        return {
+            beginNum: 0
         }
     },
     methods: {

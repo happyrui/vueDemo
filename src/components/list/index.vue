@@ -30,10 +30,12 @@
                 </option>
             </select>
             <span>Selected: {{ selected }}</span>
+            <!-- 向一个组件传递内容 -->
             <Item 
                 @fuAdd="addFun" 
                 :changeNum = "changeNum"
-             />
+            >
+             sffdfds</Item>
         </el-row>
     </div>
 </template>
