@@ -30,12 +30,21 @@
                 </option>
             </select>
             <span>Selected: {{ selected }}</span>
+            <Item 
+                @fuAdd="addFun" 
+                :changeNum = "changeNum"
+             />
         </el-row>
     </div>
 </template>
 <script>
-import { Button, Select } from 'element-ui';
+import Item from './item';
+console.log(Item)
 export default {
+    // 引入 子组件
+    components: {
+        Item
+    },
     data(){
         return {
             msg: 'this is list',
@@ -46,7 +55,8 @@ export default {
                 { text: 'One', value: 'A' },
                 { text: 'Two', value: 'B' },
                 { text: 'Three', value: 'C' }
-            ]
+            ],
+            changeNum: 0
         }
     },
     // 计算属性 复杂逻辑时使用
@@ -55,16 +65,14 @@ export default {
         // 计算属性的 getter
         reversedMessage: function () {
         // `this` 指向 vm 实例
-        return this.msg.split('').reverse().join('')
+            return this.msg.split('').reverse().join('')
         }
     },
     // 周期函数
     mounted: function(){
         console.log(this);
         this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
-            headers: {
- 
-            },
+            headers: {},
             emulateJSON: true
         }).then(function(response) {
         // 这里是处理正确的回调
@@ -75,6 +83,12 @@ export default {
             // 这里是处理错误的回调
             console.log(response)
         });
+    },
+    methods: {
+        // 父组件调用的方法
+        addFun(i) {
+            this.changeNum =  i*i;
+        }
     }
 }
 </script>
