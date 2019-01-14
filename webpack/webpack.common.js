@@ -29,8 +29,11 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
-        alias: {vue: 'vue/dist/vue.js'}
+        extensions: ['.vue', '.js', '.json'],
+        alias: {
+            components: path.resolve(__dirname, '../src/components'),
+            router: path.resolve(__dirname, '../src/router')
+        }
     },
     plugins: [
         new VueLoaderPlugin(),
