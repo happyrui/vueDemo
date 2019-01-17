@@ -4,7 +4,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 import VueResource from 'vue-resource';
+// 引入路由
 import router from './router'
+// 引入Vuex
+import store from './store'
 
 
 // 注册 全部引入
@@ -38,14 +41,10 @@ new Vue({
   // el: '#app',
   render: h => h(App),
   router,
+  // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
+  // 每个应用将仅仅包含一个 store 实例
+  store,
   components: { App },
   template: '<App/>'
 }).$mount(root)
-
-// new Vue({
-//   el: '#app',
-//   router,
-//   components: { App },
-//   template: '<App/>'
-// })
 
