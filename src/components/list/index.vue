@@ -31,17 +31,17 @@
             </select>
             <span>Selected: {{ selected }}</span> -->
             <!-- 向一个组件传递内容 -->
-            <!-- <Item 
+            <Item 
                 @fuAdd="addFun" 
                 :changeNum = "changeNum"
             >
-             sffdfds</Item> -->
+             {{changeNum}}</Item>
         </el-row>
     </div>
 </template>
 <script>
 import Item from './item';
-import { mapState, mapActions  } from 'vuex';
+import { mapState, mapActions, mapMutations  } from 'vuex';
 export default {
     // 引入 子组件
     components: {
@@ -51,7 +51,7 @@ export default {
     // 对于 初始化data，actions，getters，mutations 已经更改数据源 都放在对应的 vuex文件中
     data(){
         return {
-            // items: this.$store.getters.itemsaaa //获取store中state的数据
+            // items: this.$store.getters.items,   //获取store中state的数据
         }
     },
     // 计算属性 复杂逻辑时使用
@@ -75,6 +75,10 @@ export default {
         items: function(state) {
             // 使用modules时，需要使用 state.moduleA.xx 来取值
             return state.list.items
+        },
+        changeNum: function(state) {
+            // 使用modules时，需要使用 state.moduleA.xx 来取值
+            return state.list.changeNum
         }
     }),
     // 周期函数
@@ -89,13 +93,15 @@ export default {
         console.log(this)
     },
     methods: { 
-        ...mapActions({
-        // 父组件调用的方法
-        // addFun(i) {
-        //     this.$store.state.list.changeNum =  i*i;
-        // },
-            'getData': 'actionItems'
-        }) 
+        ...mapActions({   
+            // add: 'increment' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
+            getData: 'actionItems'
+        }),
+        ...mapMutations({
+            // add: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+            // 父组件调用的方法
+            addFun: 'changeNum'
+        })
     } 
 }
 </script>

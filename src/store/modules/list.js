@@ -1,7 +1,8 @@
 import ajax from '../../api'
 // state
 const state = {
-    items: []
+    items: [],
+    changeNum: 0
 }
 //getters
 const getters = {
@@ -37,6 +38,11 @@ const mutations = {
     state.items = result.data.movie
     console.log(state.items)
   },
+  changeNum (state, payload) {
+    console.log(state, payload);
+    state.changeNum = payload * payload
+    console.log(state.changeNum);
+  }
 }
 
 function makeAction (type) {
