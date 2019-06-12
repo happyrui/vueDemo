@@ -30,11 +30,11 @@ const mutations = {
   // state 当前state
   // aa 自定义参数
   async getItems (state, aa) {
-    const result = await ajax('https://api.douban.com/v2/movie/top250?count=10', {
-        method: 'jsonp',
+    const result = await ajax('https://www.easy-mock.com/mock/5c24adb39a96a934e48de313/api/douban/movie/top', {
+        method: 'get',
         data: {}
     })
-    state.items = result.subjects
+    state.items = result.data.movie
     console.log(state.items)
   },
 }
