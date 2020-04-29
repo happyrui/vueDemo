@@ -57,7 +57,19 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'less-loader'
+                    'less-loader',
+                    // 'postcss-loader',
+                ]
+            },
+            {
+                test:/\.pcss$/,
+                use:[
+                    {
+                      loader: 'postcss-loader',
+                      options: {
+                        plugins: () => [require('autoprefixer')]
+                      }
+                    }  
                 ]
             },
             {

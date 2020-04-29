@@ -1,0 +1,21 @@
+*{padding: 0;margin:0;}
+html{
+  width: 100%; 
+  height: 100%; 
+  margin: 0 auto;
+  /* max-width: 768px; */
+  overflow: hidden;
+  background: #ddd;
+}
+body{
+  background-color:#F9F9F9;
+  margin:0;
+  width: 100%;
+  font-size:.24rem;
+  color: #333;
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  font-family: "arial","微软雅黑";
+  overflow: hidden;
+}

@@ -9,6 +9,13 @@ import router from './router'
 // 引入Vuex
 import store from './store'
 
+// 全局引入Mint
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css'
+Vue.use(Mint);
+
+import './common.css';
+import './rem';
 
 // 注册 全部引入
 Vue.use(ElementUI)

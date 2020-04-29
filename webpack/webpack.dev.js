@@ -7,7 +7,7 @@ module.exports = merge(common, {
     devServer: {
         // 默认 localhost
         host: 'localhost',
-        port: 8080,
+        port: 8088,
         // 实现实时更新，
         // 告诉dev server 在哪里查找文件
         contentBase: './dist',
