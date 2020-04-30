@@ -37,7 +37,10 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({title: 'vue-demo'}),
+        new HtmlWebpackPlugin({
+            title: 'vue-demo',
+            template: './index.html'
+        }),
     ],
     module: {
         rules: [

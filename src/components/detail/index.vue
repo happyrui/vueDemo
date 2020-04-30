@@ -47,7 +47,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hello {
-    width: 375px;
+    /* width: 375px; */
 }
 .buttonMargin {
   margin-top: 10px;
